@@ -1,8 +1,23 @@
+import { collection, getDocs } from 'firebase/firestore/lite';
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import {firebase} from '../db/firebase.db';
+import { useEffect } from 'react';
 
 export default function Home() {
+
+  async function testFire(){
+    const citiesCol = collection(firebase, 'cities');
+    const citySnapshot = await getDocs(citiesCol);
+    const cityList = citySnapshot.docs.map(doc => doc.data());
+    console.log(cityList)
+    return cityList;
+  }
+
+  useEffect(()=>{
+    testFire()
+  },[])
   return (
     <div className={styles.container}>
       <Head>
