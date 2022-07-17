@@ -1,8 +1,27 @@
+import { collection, getDocs, addDoc,doc, query, where, getDoc } from 'firebase/firestore/lite';
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import {firestore} from '../db/firebase.db';
+import { useEffect } from 'react';
 
 export default function Home() {
+
+  async function testFire(){
+    const citiesCol = collection(firestore, 'price');
+    const q =  query(citiesCol, where("subDoc.name", "==", "wol"));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      console.log(doc.id, " => ", doc.data());
+    });
+
+
+  }
+
+  useEffect(()=>{
+    testFire()
+  },[])
   return (
     <div className={styles.container}>
       <Head>
