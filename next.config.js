@@ -1,6 +1,13 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+const withPWA = require('next-pwa')
 
-module.exports = nextConfig
+module.exports = withPWA({
+  reactStrictMode: true,
+  swcMinify: false,
+  pwa: {
+    dest: 'public',
+    fallbacks: {
+      image: '/static/images/fallback.png'
+    }
+  }
+})

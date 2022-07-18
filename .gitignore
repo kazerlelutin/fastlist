@@ -33,3 +33,13 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# PWA
+
+**/public/workbox-*.js
+**/public/sw.js
+**/public/fallback-*.js
+.env
+/test-results/
+/playwright-report/
+/playwright/.cache/

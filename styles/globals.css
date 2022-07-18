@@ -1,16 +1,97 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@font-face {
+  font-family: Ibarra;
+  src: url("/static/fonts/Ibarra_Real_Nova/IbarraRealNova-Regular.ttf")
+    format("truetype");
+  font-weight: normal;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@font-face {
+  font-family: Ibarra;
+  src: url("/static/fonts/Ibarra_Real_Nova/IbarraRealNova-Bold.ttf")
+    format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Ibarra;
+  src: url("/static/fonts/Ibarra_Real_Nova/IbarraRealNova-Italic.ttf")
+    format("truetype");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url("/static/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url("/static/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url("/static/fonts/Poppins/Poppins-Italic.ttf") format("truetype");
+  font-style: italic;
+}
+
+:root {
+  --color-text: #323438;
+  --color-princ: #920fd4;
+  --color-dark: #421f54;
+  --color-light: #ad51db;
+  --color-shadow: #3a0654;
+  --color-accent: #6f0ba1;
+  --color-bg: #f5f5f5;
 }
 
 * {
   box-sizing: border-box;
+  scrollbar-color: var(--color-princ) var(--color-light);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-shadow);
+  transition: 200ms ease-in-out;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  color: var(--color-text);
+  background: var(--color-bg);
+  font-family: Poppins, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title {
+  font-family: Ibarra;
+  color: var(--color-shadow);
+}
+
+a {
+  color: var(--color-princ);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
 }
